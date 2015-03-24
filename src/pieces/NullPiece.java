@@ -2,7 +2,7 @@ package pieces;
 
 public class NullPiece implements Piece{
 	
-	public boolean moveIsLegal(int row, int col, int[][] boardState){
+	public boolean moveIsLegal(int row, int col, Piece[][] boardState){
 		throw new UnsupportedOperationException("Can't move nonexistent piece");
 	}
 
@@ -10,7 +10,13 @@ public class NullPiece implements Piece{
 		throw new UnsupportedOperationException("Can't move nonexistent piece");
 	}
 	
-	public boolean isNotNullPiece(){
+	public boolean isNullPiece(){
+		return true;
+	}
+
+	@Override
+	public boolean isSameAlignment() {
+		// TODO Auto-generated method stub
 		return false;
 	}
 }

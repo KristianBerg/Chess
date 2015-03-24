@@ -1,11 +1,10 @@
 package pieces;
 
-public class Pawn implements Piece {
+public class Pawn extends ChessPiece {
 	int row, col;
 	
-	public Pawn(int startRow, int startCol){
-		row = startRow;
-		col = startCol;
+	public Pawn(int startRow, int startCol, String alignment){
+		super(startRow, startCol, alignment);
 	}
 	
 	public void setPosition(int row, int col){
@@ -17,7 +16,13 @@ public class Pawn implements Piece {
 		return false;
 	}
 	
-	public boolean isNotNullPiece(){
-		return true;
+	public boolean isNullPiece(){
+		return false;
+	}
+
+	@Override
+	public boolean isSameAlignment() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

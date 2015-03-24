@@ -1,16 +1,16 @@
 package test;
 
-import model.Board;
+import model.ChessBoard;
 
 import org.junit.Before;
 import org.junit.Test;
 
-public class testBoard {
-	private Board board;
+public class TestBoard {
+	private ChessBoard board;
 	
 	@Before
 	public void Setup(){
-		board = new Board();
+		board = new ChessBoard();
 	}
 	
 	@Test
