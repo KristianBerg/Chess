@@ -21,7 +21,7 @@ public class Pawn extends ChessPiece {
 	}
 
 	@Override
-	public boolean isSameAlignment() {
+	public boolean isSameAlignment(Piece piece) {
 		// TODO Auto-generated method stub
 		return false;
 	}

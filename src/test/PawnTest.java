@@ -10,7 +10,7 @@ import pieces.NullPiece;
 import pieces.Pawn;
 import pieces.Piece;
 
-public class TestPawn {
+public class PawnTest {
 	private Pawn pawn;
 	private Piece[][] boardState;
 	

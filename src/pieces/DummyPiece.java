@@ -2,20 +2,36 @@ package pieces;
 
 public class DummyPiece implements Piece {
 	int row, col;
-	
-	public DummyPiece(int row, int col){
-		
+
+	public DummyPiece(int row, int col) {
+
 	}
-	
+
 	@Override
 	public void setPosition(int row, int col) {
-		// TODO Auto-generated method stub
+		this.row = row;
+		this.col = col;
 	}
 
 	@Override
 	public boolean moveIsLegal(int row, int col, Piece[][] boardState) {
-		boolean isLegalDirection, isNotBlocked;
-		return false;
+		// TODO Auto-generated method stub
+		boolean isLegalDirection = false, isNotBlocked = false, isInBoardBounds = false;
+		int length = boardState.length;
+		if (0 < row && row < length && 0 < col && col < length) {
+			isInBoardBounds = false;
+		} 
+		if (Math.abs(row - this.row) == 2 && col == this.col){
+			isLegalDirection = true;
+			int direction = (row - this.row) / 2;
+			if(boardState[row + direction][col].isNullPiece() && boardState[row + 2*direction][col].isNullPiece()){
+				isNotBlocked = true;
+			}
+		} else if (Math.abs(col - this.col) == 2 && row == this.row){
+			isLegalDirection = true;
+		}
+		
+		return isLegalDirection && isNotBlocked && isInBoardBounds;
 	}
 
 	@Override
@@ -24,9 +40,14 @@ public class DummyPiece implements Piece {
 	}
 
 	@Override
-	public boolean isSameAlignment() {
+	public boolean isSameAlignment(Piece piece) {
 		// TODO Auto-generated method stub
-		return false;
+		if (piece instanceof DummyPiece) {
+			piece = (DummyPiece) piece;
+		} else {
+			return false;
+		}
+		return true;
 	}
 
 }

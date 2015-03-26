@@ -5,7 +5,7 @@ import model.ChessBoard;
 import org.junit.Before;
 import org.junit.Test;
 
-public class TestBoard {
+public class BoardTest {
 	private ChessBoard board;
 	
 	@Before
