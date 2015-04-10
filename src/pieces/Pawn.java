@@ -1,5 +1,7 @@
 package pieces;
 
+import model.ChessBoard;
+
 public class Pawn extends ChessPiece {
 	int row, col;
 	
@@ -22,6 +24,12 @@ public class Pawn extends ChessPiece {
 
 	@Override
 	public boolean isSameAlignment(Piece piece) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isThreatening(int row, int col, ChessBoard board) {
 		// TODO Auto-generated method stub
 		return false;
 	}

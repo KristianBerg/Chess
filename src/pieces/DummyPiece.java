@@ -41,10 +41,7 @@ public class DummyPiece implements Piece {
 
 	@Override
 	public boolean isSameAlignment(Piece piece) {
-		// TODO Auto-generated method stub
-		if (piece instanceof DummyPiece) {
-			piece = (DummyPiece) piece;
-		} else {
+		if (!(piece instanceof DummyPiece)){
 			return false;
 		}
 		return true;

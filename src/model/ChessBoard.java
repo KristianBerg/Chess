@@ -27,15 +27,25 @@ public class ChessBoard implements Board{
 	}
 
 	@Override
-	public void checkWinCondition() {
+	public boolean checkWinCondition() {
 		// TODO Auto-generated method stub
-		
+		return false;
 	}
 
 	@Override
 	public void movePiece() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public String getVisualString() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getEndCondition() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
