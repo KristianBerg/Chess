@@ -5,12 +5,12 @@ import pieces.Pawn;
 import pieces.Piece;
 
 public class ChessBoard implements Board {
-	private Piece[][] boardState;
+	private ChessPiece[][] boardState;
 	private static final int BOARDSIZE = 8;
 	private boolean whitesTurn;
 
 	public ChessBoard() {
-		boardState = new Piece[BOARDSIZE][BOARDSIZE];
+		boardState = new ChessPiece[BOARDSIZE][BOARDSIZE];
 		whitesTurn = true;
 	}
 
@@ -43,14 +43,29 @@ public class ChessBoard implements Board {
 
 	public String getVisualString() {
 		// TODO Auto-generated method stub
-		return null;
+		StringBuilder sb = new StringBuilder();
+		for(int i = 0; i < BOARDSIZE; i++){
+			for(int j = 0; j < BOARDSIZE; j++){
+				ChessPiece piece = boardState[i][j];
+				if(piece.isNullPiece()){
+					sb.append("o ");
+				} else {
+					sb.append(piece.visualString() + " ");
+				}
+			}
+			sb.deleteCharAt(sb.length()); //Remove last space
+			sb.append("\n");
+		}
+		return sb.toString();
 	}
 
 	public String getCurrentPlayer() {
-		// TODO Auto-generated method stub
-		return null;
+		if (whitesTurn) {
+			return "white";
+		}
+		return "black";
 	}
-	
+
 	public boolean staleMate() {
 		// TODO Auto-generated method stub
 		return false;

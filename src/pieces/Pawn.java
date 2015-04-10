@@ -33,4 +33,10 @@ public class Pawn extends ChessPiece {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	@Override
+	public String visualString() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
