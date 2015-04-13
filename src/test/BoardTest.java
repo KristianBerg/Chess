@@ -7,14 +7,20 @@ import org.junit.Test;
 
 public class BoardTest {
 	private ChessBoard board;
-	
+
 	@Before
-	public void Setup(){
+	public void Setup() {
 		board = new ChessBoard();
+		board.setupNewGame();
 	}
-	
+
 	@Test
-	public void testRegularLegalMove(){
+	public void testRegularLegalMove() {
+
+	}
+
+	@Test
+	public void testParseSquareInput() {
 		
 	}
 }

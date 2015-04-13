@@ -28,7 +28,7 @@ public class DummyBoard implements Board {
 	}
 
 	@Override
-	public void movePiece() {
+	public void movePiece(String from, String to) {
 		// TODO Auto-generated method stub
 		
 	}

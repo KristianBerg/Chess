@@ -1,8 +1,8 @@
 package model;
 
 import pieces.ChessPiece;
+import pieces.NullPiece;
 import pieces.Pawn;
-import pieces.Piece;
 
 public class ChessBoard implements Board {
 	private ChessPiece[][] boardState;
@@ -11,13 +11,17 @@ public class ChessBoard implements Board {
 
 	public ChessBoard() {
 		boardState = new ChessPiece[BOARDSIZE][BOARDSIZE];
+		for(int i = 0; i < BOARDSIZE; i++){
+			for(int j = 0; i < BOARDSIZE; i++){
+				boardState[i][j] = new NullPiece();
+			}
+		}
 		whitesTurn = true;
 	}
 
-	public boolean movePiece(String from, String to) {
+	public void movePiece(String from, String to) {
 		// TODO Auto-generated method stub
 		ChessPiece piece = parseSquareInput(from);
-		return false;
 	}
 
 	@Override
@@ -36,24 +40,14 @@ public class ChessBoard implements Board {
 		return false;
 	}
 
-	@Override
-	public void movePiece() {
-		// TODO Auto-generated method stub
-	}
-
 	public String getVisualString() {
-		// TODO Auto-generated method stub
 		StringBuilder sb = new StringBuilder();
 		for(int i = 0; i < BOARDSIZE; i++){
 			for(int j = 0; j < BOARDSIZE; j++){
 				ChessPiece piece = boardState[i][j];
-				if(piece.isNullPiece()){
-					sb.append("o ");
-				} else {
-					sb.append(piece.visualString() + " ");
-				}
+				sb.append(piece.visualString() + " ");
 			}
-			sb.deleteCharAt(sb.length()); //Remove last space
+			sb.deleteCharAt(sb.length()); //Removes last space inserted
 			sb.append("\n");
 		}
 		return sb.toString();
@@ -71,9 +65,12 @@ public class ChessBoard implements Board {
 		return false;
 	}
 
-	private ChessPiece parseSquareInput(String from) {
+	public ChessPiece parseSquareInput(String from) {
 		// TODO Auto-generated method stub
-		return null;
+		char colChar = from.charAt(0);
+		int col = colChar - 96; //convert from a-h to 1-8
+		int row = from.charAt(1);
+		return boardState[row][col];
 	}
 
 }

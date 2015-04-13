@@ -3,5 +3,5 @@ package model;
 public interface Board {
 	public void setupNewGame();
 	public boolean checkWinCondition();
-	public void movePiece();
+	public void movePiece(String from, String to);
 }

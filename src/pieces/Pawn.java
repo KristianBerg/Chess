@@ -3,7 +3,6 @@ package pieces;
 import model.ChessBoard;
 
 public class Pawn extends ChessPiece {
-	int row, col;
 	
 	public Pawn(int startRow, int startCol, String alignment){
 		super(startRow, startCol, alignment);
@@ -15,6 +14,15 @@ public class Pawn extends ChessPiece {
 	}
 
 	public boolean moveIsLegal(int row, int col, Piece[][] boardState) {
+		int direction = 0;
+		if(alignment.equals("white")){
+			direction = 1;
+		} else {
+			direction = -1;
+		}
+		if(this.row == row && this.col == col - 1 * direction){
+			return true;
+		}
 		return false;
 	}
 	
