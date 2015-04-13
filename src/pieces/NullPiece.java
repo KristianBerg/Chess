@@ -5,7 +5,7 @@ import model.ChessBoard;
 public class NullPiece extends ChessPiece{
 	
 	public NullPiece(){
-		super(0, 0, null);
+		super(0, 0, "null");
 	}
 
 	public boolean moveIsLegal(int row, int col, Piece[][] boardState){
@@ -24,7 +24,7 @@ public class NullPiece extends ChessPiece{
 		return false;
 	}
 
-	public boolean isThreatening(int row, int col, ChessBoard board) {
+	public boolean isThreatening(int row, int col, ChessPiece boardState[][]) {
 		throw new UnsupportedOperationException("Nonexistent piece can't threaten");
 	}
 
