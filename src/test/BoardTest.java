@@ -13,6 +13,12 @@ public class BoardTest {
 		board = new ChessBoard();
 		board.setupNewGame();
 	}
+	
+	@Test
+	public void testGetVisualRepresentationOfPawns() {
+		String boardString = board.getVisualString();
+		System.out.println(boardString);
+	}
 
 	@Test
 	public void testRegularLegalMove() {

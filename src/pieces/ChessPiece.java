@@ -1,6 +1,5 @@
 package pieces;
 
-import model.ChessBoard;
 
 public abstract class ChessPiece implements Piece{
 	protected String alignment;
@@ -10,6 +9,8 @@ public abstract class ChessPiece implements Piece{
 	public abstract String visualString();
 	
 	protected ChessPiece(int r, int c, String a){
-		
+		row = r;
+		col = c;
+		alignment = a;
 	}
 }

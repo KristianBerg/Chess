@@ -1,6 +1,5 @@
 package pieces;
 
-import model.ChessBoard;
 
 public class NullPiece extends ChessPiece{
 	

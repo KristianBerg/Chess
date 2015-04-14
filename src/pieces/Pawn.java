@@ -18,6 +18,7 @@ public class Pawn extends ChessPiece {
 	}
 
 	public boolean moveIsLegal(int row, int col, Piece[][] boardState) {
+		//TODO Pawn going to last row
 		if(this.isThreatening(row, col, (ChessPiece[][]) boardState)){ //TODO Figure out better solution
 			return true;
 		}
@@ -56,7 +57,6 @@ public class Pawn extends ChessPiece {
 
 	@Override
 	public String visualString() {
-		// TODO Auto-generated method stub
 		if(alignment.equals("white")){
 			return "wp";
 		}

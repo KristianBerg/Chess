@@ -12,16 +12,11 @@ public class ChessBoard implements Board {
 	public ChessBoard() {
 		boardState = new ChessPiece[BOARDSIZE][BOARDSIZE];
 		for(int i = 0; i < BOARDSIZE; i++){
-			for(int j = 0; i < BOARDSIZE; i++){
+			for(int j = 0; j < BOARDSIZE; j++){
 				boardState[i][j] = new NullPiece();
 			}
 		}
 		whitesTurn = true;
-	}
-
-	public void movePiece(String from, String to) {
-		// TODO Auto-generated method stub
-		ChessPiece piece = parseSquareInput(from);
 	}
 
 	@Override
@@ -29,10 +24,23 @@ public class ChessBoard implements Board {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < BOARDSIZE; i++) {
 			boardState[1][i] = new Pawn(1, i, "white");
-			boardState[7][i] = new Pawn(7, i, "black");
+			boardState[6][i] = new Pawn(6, i, "black");
 		}
-
+		
 	}
+
+	public void movePiece(String from, String to) {
+		// TODO Auto-generated method stub
+		ChessPiece piece = parseSquareInputToPiece(from);
+		int col = (char) to.charAt(0) - 96;
+		int row = to.charAt(1);
+		if(piece.moveIsLegal(row, col, boardState)){
+			piece.setPosition(row, col);
+		} else {
+			throw new moveNotAllowedException();
+		}
+	}
+
 
 	@Override
 	public boolean checkWinCondition() {
@@ -47,7 +55,7 @@ public class ChessBoard implements Board {
 				ChessPiece piece = boardState[i][j];
 				sb.append(piece.visualString() + " ");
 			}
-			sb.deleteCharAt(sb.length()); //Removes last space inserted
+			sb.deleteCharAt(sb.length() - 1); //Removes last space inserted
 			sb.append("\n");
 		}
 		return sb.toString();
@@ -65,7 +73,7 @@ public class ChessBoard implements Board {
 		return false;
 	}
 
-	public ChessPiece parseSquareInput(String from) {
+	public ChessPiece parseSquareInputToPiece(String from) {
 		// TODO Auto-generated method stub
 		char colChar = from.charAt(0);
 		int col = colChar - 96; //convert from a-h to 1-8
